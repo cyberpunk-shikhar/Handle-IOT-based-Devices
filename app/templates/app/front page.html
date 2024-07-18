@@ -1,0 +1,93 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static '/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <title>Form</title>
+  </head>
+  <body>
+    <section class="form-09">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="_form_07_main">
+              <div class="row">
+                <div class="col-sm-6 ncv-kl-bn">
+                  <div class="_form_07_main_sub_01">
+                    <div class="form-07-head">
+                      <h2>Iot based web pallication for lora devices</h2>
+                      <p>This project focuses on creating a web application that interacts with LoRa devices, enabling users to monitor, control, and
+                        manage IoT devices remotely.This IoT-based web application, using Django and MySQL, with real-time data visualization on
+                        the dashboard, This project used rest-framework,api.</p>
+                    </div>
+                    <!-- <div class="form-7-social-media">
+                      <ol>
+                        <li><i class="fa fa-facebook"></i></li>
+                        <li><i class="fa fa-twitter"></i></li>
+                        
+                        <li><i class="fa fa-youtube"></i></li>
+                        <li><i class="fa fa-linkedin"></i></li>
+                      </ol>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="col-sm-6 cv-kl-bn">
+                   <!-- main -->
+        <!-- <div class="main-w3layouts wrapper"> -->
+          <h1>Login Form</h1>
+         <center><h3 style="color:red">{{msg}}</h3></center> 
+          <!-- <div class="main-agileinfo"> -->
+              <div class="agileits-top">
+                  <form action="{% url 'loginuser' %}" method="post">
+                      {% csrf_token %}
+                      
+                      
+                      <input class="text Email" type="Email" name="Email" placeholder="Email" required="">
+                      
+                      <input class="text" type="password" name="password" placeholder="password" required="">
+                      
+                      
+                      <input type="submit" value="SIGNIN">
+                  </form>
+                  <p>Don't have an Account? <a href="/register/"> Register Now</a></p>
+              </div>
+          </div>
+          <div class="colorlibcopy-agile">
+            <p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+          </div>
+          <!-- //copyright -->
+          <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

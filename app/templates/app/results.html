@@ -1,0 +1,21 @@
+<!-- templates/ip_status.html -->
+<html>
+<head>
+    <title>IP Status</title>
+</head>
+<body>
+    <h1>IP Status</h1>
+    <ul>
+        {% for ADDDEVICES, online in results.items %}
+            <li>{{ ADDDEVICES }}: 
+                {% if online %}
+                <button style="background-color: green;">Connected</button>
+                
+                {% else %}
+                <button style="background-color: red;">Not Connected</button>
+                {% endif %}</li>
+        {% endfor %}
+  
+    </ul>
+</body>
+</html>

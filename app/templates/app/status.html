@@ -1,0 +1,16 @@
+<!-- esp8266_status.html -->
+<html>
+<head>
+    <title>ESP8266 Device Status</title>
+</head>
+<body>
+    <h1>{{ device.name }} Status</h1>
+    <h1>{{ device.port }} Status</h1>
+    <h1>{{ device.status }} Status</h1>
+    {% if device.connected %}
+        <button style="background-color: green;">Connected</button>
+    {% else %}
+        <button style="background-color: red;">Not Connected</button>
+    {% endif %}
+</body>
+</html>

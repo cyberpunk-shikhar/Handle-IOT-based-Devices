@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Devices</title>
+    <style>
+        .device-container {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .device-image {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .device-details {
+            flex-grow: 1;
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .device-name {
+            font-weight: bold;
+        }
+
+        .device-ip {
+            color: #888;
+        }
+
+        .device-status {
+            color: green; /* You can change the color based on status */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Device Information</h1>
+    
+    <div class="device-container">
+        <img class="device-image" src="device1.jpg" alt="Device 1">
+        <div class="device-details">
+            <div class="device-name">Device 1</div>
+            <div class="device-ip">IP Address: </div>
+            <div class="device-status">Status: Online</div>
+        </div>
+    </div>
+
+    <div class="device-container">
+        <img class="device-image" src="device2.jpg" alt="Device 2">
+        <div class="device-details">
+            <div class="device-name">Device 2</div>
+            <div class="device-ip">IP Address: 192.168.1.102</div>
+            <div class="device-status">Status: Offline</div>
+        </div>
+    </div>
+
+    <!-- Add more devices as needed -->
+
+</body>
+</html>

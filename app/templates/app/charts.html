@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center><div style="height: 50%; width:80%;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+    <script>
+        // setup block
+        const labels = [     
+        ];
+        const data = {
+            labels:  [   {% for arduinodata in arduinodata %} '{{arduinodata.data }}',   {% endfor %},
+        ],
+     
+                
+            datasets: [
+                {
+                label: 'dht11 sensor',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [  {% for arduinodata in arduinodata %} '{{arduinodata.id}}',   {% endfor %}, ],
+                
+                lineTension:0.5
+                
+            }]
+        };
+
+        // config block
+
+        const config = {
+            type:'line',
+            data ,
+            options: {}
+        };
+
+
+        // === include 'setup' then 'config' above ===
+
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+        window.setInterval(mycallback,2000);
+        
+        function mycallback(){
+            var now = new Date();
+            now = now.getHours() + ":" + now.getMinutes() + ":" +now.getSeconds();
+            var value=Math.floor(Math.random() * 1000);
+            data.labels.push(now);
+            data.datasets[0].data.push(value);
+            mychart.update();
+        }
+    </script>
+</body>
+
+</html>

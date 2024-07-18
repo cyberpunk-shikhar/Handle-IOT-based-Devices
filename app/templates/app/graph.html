@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJANGO CHARTS</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="refresh" content="10">   -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="" />
+        <meta name="author" content="">
+        <title>Arduino-Data</title>
+        <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> -->
+        <link href="{% static '/css/styles2.css' %}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="#">Device 1</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        {% comment %} <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li> {% endcomment %}
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="/das/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            {% comment %} <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div> {% endcomment %}
+                            {% comment %} <div class="sb-sidenav-menu-heading">Addons</div> {% endcomment %}
+                            <a class="nav-link" href="/chart/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Charts
+                            </a>
+                            {% comment %} <a class="nav-link" href="/data/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables
+                            </a> {% endcomment %}
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        {{request.session.Firstname}}
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-2">Device 1</h1>
+                        <ol class="breadcrumb mb-1">
+                            {% comment %} <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li> {% endcomment %}
+                            {% comment %} <li class="breadcrumb-item active">Tables</li> {% endcomment %}
+                        </ol>
+                       
+                      
+                            
+    <style>
+        .card {
+            margin: 5% 0%;
+            width: 50%;
+        }
+        
+        .card-body {
+            margin: 0% 0% 0% 3%;
+            padding: 6% 0%;
+        }
+    </style>
+    <br><br>
+    <div style="display: flex;  flex-wrap: wrap; justify-content: center;">
+        <form id="filterForm">
+            
+            <input class="btn btn-sm text-white" style="background-color: rgb(16, 16, 32);" type="submit" value="Refresh" name="_load">
+        </form>
+    </div>
+    <br><br>
+    <div style="display: flex;  flex-wrap: wrap; justify-content: center;">
+        <div id="container" style="width: 35%;" class="shadow p-3 mb-5 bg-white rounded">
+            <h4 class="text-center"><strong>TEMPERATURE CHART</strong></h4>
+            <canvas id="temperatureChart"></canvas>
+        </div>
+        <div id="container" style="width: 35%;" class="shadow p-3 mb-5 bg-white rounded">
+            <h4 class="text-center"><strong>HUMIDITY CHART</strong></h4>
+            <canvas id="humidityChart"></canvas>
+
+        </div>
+        <div id="container" style="width: 35%;" class="shadow p-3 mb-5 bg-white rounded">
+            <h4 class="text-center"><strong>BRIGHTNESS CHART</strong></h4>
+            <canvas id="brightnessChart"></canvas>
+        </div>
+        <div id="container" style="width: 35%;" class="shadow p-3 mb-5 bg-white rounded">
+            <h4 class="text-center"><strong>ATMOSPHERIC PRESSURE CHART</strong></h4>
+            <canvas id="pressureChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let temperatureCtx = document.getElementById("temperatureChart").getContext("2d");
+        let temperatureChart = new Chart(temperatureCtx, {
+            type: "line",
+            options: {
+                responsive: true,
+            }
+        });
+        let humidityCtx = document.getElementById("humidityChart").getContext("2d");
+        let humidityChart = new Chart(humidityCtx, {
+            type: "line",
+            options: {
+                responsive: true,
+            }
+        });
+        let brightnessCtx = document.getElementById("brightnessChart").getContext("2d");
+        let brightnessChart = new Chart(brightnessCtx, {
+            type: "line",
+            options: {
+                responsive: true,
+            }
+        });
+        let pressureCtx = document.getElementById("pressureChart").getContext("2d");
+        let pressureChart = new Chart(pressureCtx, {
+            type: "line",
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
+    <script>
+        $("#filterForm").on("submit", (event) => {
+            event.preventDefault();
+            loadAllCharts()
+        });
+
+        function loadChart(chart, endpoint) {
+            $.ajax({
+                url: endpoint,
+                type: "GET",
+                dataType: "json",
+                success: (jsonResponse) => {
+                    // Extract data from the response
+                    const title = jsonResponse.title;
+                    const labels = jsonResponse.data.labels;
+                    const datasets = jsonResponse.data.datasets;
+
+                    // Reset the current chart
+                    chart.data.datasets = [];
+                    chart.data.labels = [];
+
+                    // Load new data into the chart
+                    chart.options.title.text = title;
+                    chart.options.title.display = true;
+                    chart.data.labels = labels;
+                    datasets.forEach(dataset => {
+                        chart.data.datasets.push(dataset);
+                    });
+                    chart.update();
+                },
+                error: () => console.log("Failed to fetch chart data from " + endpoint + "!")
+            });
+        }
+
+        function loadAllCharts() {
+            loadChart(temperatureChart, `/temp`);
+            loadChart(humidityChart, `/hum`);
+            loadChart(brightnessChart, `/bright`);
+            loadChart(pressureChart, `/pressure`);
+        }
+    </script>
+
+
+
+
+
+                            </div>
+                        </div>		
+                    </div>
+                </main>
+                {% comment %} <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div> {% endcomment %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>

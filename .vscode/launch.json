@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/adar9/AppData/Local/Temp/Tempd795071c-fde9-4814-84a2-b0d86d3d1776_ESP32_datalogger_raspberry_django.zip/ESP32_datalogger_raspberry_django/src",
+      "program": "c:/Users/adar9/AppData/Local/Temp/Tempd795071c-fde9-4814-84a2-b0d86d3d1776_ESP32_datalogger_raspberry_django.zip/ESP32_datalogger_raspberry_django/src/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

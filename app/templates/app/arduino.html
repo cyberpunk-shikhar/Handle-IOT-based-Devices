@@ -1,0 +1,70 @@
+<!--  
+
+<html>
+ 
+<head>
+    <title>C.R.U.D</title>
+    <style>
+        table {
+            margin-left: 300px;
+            margin-top: 10px;
+            column-width: 20px;
+            font-size: 20px;
+            border: 5px solid black;
+            padding: 5px;
+        }
+ 
+        thead {
+            padding: 10px;
+        }
+ 
+        tbody {
+            padding: 10px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <p style="margin-left:500px;"><a href="/">Home</a></p>
+    <div class="container">
+        <table border="5px solid #000;">
+            <tbody>
+ 
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>data</th>
+                        <th>timestamp</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+ 
+                </thead>
+            <tbody>
+                {% for arduinodata in arduinodata %}
+                <tr>
+                    <td style="padding:10px;">{{ arduinodata.id }}</td>
+                    <td style="padding:10px;">{{arduinodata.data}}</td>
+                    <td style="padding:10px;">{{arduinodata.timestamp}}</td>
+                    <td style="padding:10px;"><a href="app /edit/">Edit</a></td>
+                    <td style="padding:10px;"><a href="#">Delete</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+            </tbody>
+        </table>
+    </div>  
+</body>
+ 
+ </html>  -->
+
+
+ 
+ 
+ 
+
+
+
+
+
